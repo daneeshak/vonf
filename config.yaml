@@ -108,7 +108,7 @@ proxies:
     ws-opts:
       path: /vmess
       headers:
-       Host: hutch.lk
+       Host: online.hutch.lk
     #   max-early-data: 2048
     #   early-data-header-name: Sec-WebSocket-Protocol   
   - name: "vmess airtel"
@@ -174,7 +174,7 @@ proxy-groups:
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
-    - DIALOG 0 TROJANm
+    - DIALOG 0 TROJAN
     - DIALOG 02
     - vmess hutch
     - vmess airtel
@@ -225,3 +225,4 @@ tun:
   auto-detect-interface: true
   
 mode: global
+
