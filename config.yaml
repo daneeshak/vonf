@@ -1,0 +1,227 @@
+external-controller: 127.0.0.1:9090
+external-ui: D:\clash\yacd-gh-pages
+profile:
+  store-selected: true
+  store-fake-ip: true
+proxies:
+  - name: "Twitter CDN"
+    type: trojan
+    server: 104.18.20.140
+    port: 443
+    password: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    udp: true
+    sni: linkedin.iamtrazy.tk
+    network: ws
+    ws-opts:
+     path: /trojanws
+     headers:
+      Host: linkedin.iamtrazy.tk
+  - name: "DIALOG-ZOOM-CDN"
+    type: vmess
+    server: 104.18.47.108
+    port: 443
+    uuid: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: ashen.meetzoom.tk
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: ashen.meetzoom.tk
+  - name: "MOBITEL-LINKEDIN-CDN"
+    type: vmess
+    server: 104.18.47.108
+    port: 443
+    uuid: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: linkedin.iamtrazy.tk
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: linkedin.iamtrazy.tk
+  - name: "Dialog 0"
+    type: vmess
+    server: d216901qxcl0k5.cloudfront.net
+    port: 443
+    uuid: 15e38fc7-ebd7-4050-a153-ac41ee1bd9f5
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: d216901qxcl0k5.cloudfront.net
+    network: ws
+    ws-opts:
+       path: /vless
+       headers:
+         Host: d118ao3w9nb3kb.cloudfront.net
+  - name: "DIALOG 0 TROJAN"
+    type: trojan
+    server: d216901qxcl0k5.cloudfront.net
+    port: 443
+    password: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    udp: true
+    sni: d216901qxcl0k5.cloudfront.net
+    network: ws
+    ws-opts:
+     path: /trojanws
+     headers:
+      Host: d3mea97j4x8196.cloudfront.net
+    skip-cert-verify: false
+  - name: "DIALOG 02"
+    type: vmess
+    server: d216901qxcl0k5.cloudfront.net
+    port: 443
+    uuid: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: d216901qxcl0k5.cloudfront.net
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: d3mea97j4x8196.cloudfront.net
+  - name: "vmess hutch"
+    type: vmess
+    server: 104.237.129.111
+    port: 8443
+    uuid: 63824363-613c-48d6-dc21-95d61ad3099b
+    alterId: 0
+    cipher: auto
+    # udp: true
+    # tls: true
+    # skip-cert-verify: true
+    # servername: example.com # priority over wss host
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+       Host: online.hutch.lk
+    #   max-early-data: 2048
+    #   early-data-header-name: Sec-WebSocket-Protocol   
+  - name: "vmess airtel"
+    type: vmess
+    server: 104.237.129.111
+    port: 8443
+    uuid: 63824363-613c-48d6-dc21-95d61ad3099b
+    alterId: 0
+    cipher: auto
+    # udp: true
+    # tls: true
+    # skip-cert-verify: true
+    # servername: example.com # priority over wss host
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+       Host: docs.google.com
+    #   max-early-data: 2048
+    #   early-data-header-name: Sec-WebSocket-Protocol   
+
+proxy-groups:
+  - name: "auto"
+    type: select
+    proxies:
+    - Twitter CDN
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - Dialog 0
+    - DIALOG 0 TROJAN
+    - DIALOG 02
+    - vmess hutch
+    - vmess airtel
+  - name: "fallback-auto"
+    type: fallback
+    proxies:
+    - Twitter CDN
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - Dialog 0
+    - DIALOG 0 TROJAN
+    - DIALOG 02
+    - vmess hutch
+    - vmess airtel
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 10  
+  - name: Proxy
+    type: select
+    proxies:
+    - Twitter CDN
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - Dialog 0
+    - DIALOG 0 TROJAN
+    - DIALOG 02
+    - vmess hutch
+    - vmess airtel
+   #disable-udp: true
+  - name: "load-balance"
+    type: load-balance
+    proxies:
+    - Twitter CDN
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - Dialog 0
+    - DIALOG 0 TROJAN
+    - DIALOG 02
+    - vmess hutch
+    - vmess airtel
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 10
+   #lazy: true
+   #disable-udp: true
+   #strategy: consistent-hashing # or round-robin 
+  - name: "relay"
+    type: relay
+    proxies:
+    - Twitter CDN
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - Dialog 0
+    - DIALOG 0 TROJAN
+    - DIALOG 02
+    - vmess hutch
+    - vmess airtel
+ #disable-udp: true   
+rules:
+  - IP-CIDR,192.248.0.0/17,DIRECT
+  - IP-CIDR,192.248.64.0/18,DIRECT
+  - IP-CIDR,192.248.32.0/19,DIRECT
+  - IP-CIDR,192.248.16.0/20,DIRECT
+  - IP-CIDR,192.248.8.0/21,DIRECT
+  - IP-CIDR,103.77.64.0/22,DIRECT
+  - IP-CIDR,192.248.0.0/22,DIRECT
+  - IP-CIDR,192.248.4.0/22,DIRECT
+  - MATCH,auto
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+   - 192.168.1.1
+   - 192.168.8.1
+   - 192.168.205.254
+log-level: silent
+allow-lan: false
+ipv6: false
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - 198.18.0.2:53
+  auto-route: true
+  auto-detect-interface: true
+  
+mode: global
