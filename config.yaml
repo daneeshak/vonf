@@ -213,6 +213,8 @@ dns:
    - 192.168.1.1
    - 192.168.8.1
    - 192.168.205.254
+   - 8.8.8.8
+   - 8.8.4.4
 log-level: silent
 allow-lan: false
 ipv6: false
@@ -221,8 +223,10 @@ tun:
   stack: gvisor
   dns-hijack:
     - 198.18.0.2:53
+    - 8.8.8.8:53
+    - 8.8.4.4:53
+    - 1.1.1.1:53
   auto-route: true
   auto-detect-interface: true
   
 mode: global
-
