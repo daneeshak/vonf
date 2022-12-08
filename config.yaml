@@ -63,7 +63,7 @@ proxies:
     ws-opts:
        path: /vless
        headers:
-         Host: d118ao3w9nb3kb.cloudfront.net
+         Host: d1wyqx851n45xo.cloudfront.net
   - name: "DIALOG 0 TROJAN"
     type: trojan
     server: d216901qxcl0k5.cloudfront.net
