@@ -52,7 +52,7 @@ proxies:
     type: vmess
     server: d216901qxcl0k5.cloudfront.net
     port: 443
-    uuid: 15e38fc7-ebd7-4050-a153-ac41ee1bd9f5
+    uuid: 9a616720-0480-4656-9393-df67d2f1c9d5
     alterId: 0
     cipher: auto
     udp: true
@@ -61,7 +61,7 @@ proxies:
     servername: d216901qxcl0k5.cloudfront.net
     network: ws
     ws-opts:
-       path: /vless
+       path: /vmess
        headers:
          Host: d3c0j6ufbov05a.cloudfront.net
   - name: "DIALOG 0 TROJAN"
