@@ -82,17 +82,17 @@ proxies:
     server: xui.yesitha.tk
     port: 443
     uuid: 9a616720-0480-4656-9393-df67d2f1c9d5
-    cipher: aes-128-gcm
     alterId: 0
+    cipher: auto
     udp: true
     tls: true
     skip-cert-verify: false
     servername: www.crm.esamurdhi.gov.lk
     network: ws
     ws-opts:
-      path: /vmess
-      headers:
-       Host: xui.yesitha.tk
+       path: /vmess
+       headers:
+         Host: xui.yesitha.tk
   - name: "vmess hutch"
     type: vmess
     server: 104.18.47.108
