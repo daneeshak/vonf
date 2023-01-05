@@ -79,20 +79,20 @@ proxies:
     skip-cert-verify: false
   - name: "DIALOG 02"
     type: vmess
-    server: d216901qxcl0k5.cloudfront.net
+    server: xui.yesitha.tk
     port: 443
-    uuid: a01deb19-d9e0-4230-b2f5-e3db911438af
+    uuid: 9a616720-0480-4656-9393-df67d2f1c9d5
     cipher: aes-128-gcm
     alterId: 0
     udp: true
     tls: true
     skip-cert-verify: false
-    servername: d216901qxcl0k5.cloudfront.net
+    servername: www.crm.esamurdhi.gov.lk
     network: ws
     ws-opts:
-      path: /a9a331c/
+      path: /vmess
       headers:
-       Host: d38m0bk8uurt4n.cloudfront.net
+       Host: xui.yesitha.tk
   - name: "vmess hutch"
     type: vmess
     server: 104.18.47.108
