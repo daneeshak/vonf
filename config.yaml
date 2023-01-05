@@ -86,7 +86,7 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    skip-cert-verify: false
+    skip-cert-verify: true
     servername: www.crm.esamurdhi.gov.lk
     network: ws
     ws-opts:
