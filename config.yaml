@@ -87,7 +87,7 @@ proxies:
     udp: true
     tls: true
     skip-cert-verify: true
-    servername: www.crm.esamurdhi.gov.lk
+    servername: docs.google.com
     network: ws
     ws-opts:
        path: /vmess
