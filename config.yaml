@@ -124,7 +124,7 @@ proxies:
     # servername: example.com # priority over wss host
     network: ws
     ws-opts:
-      path: /vmess
+      path: /vmessws
       headers:
        Host: docs.google.com
     #   max-early-data: 2048
