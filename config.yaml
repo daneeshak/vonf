@@ -113,23 +113,20 @@ proxies:
     #   early-data-header-name: Sec-WebSocket-Protocol   
   - name: "vmess airtel"
     type: vmess
-    server: 104.18.47.108
+    server: disnet.gq
     port: 443
-    uuid: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    uuid: 7c7e0edb-c45a-4c07-b66a-69b191179349
     alterId: 0
     cipher: auto
-    # udp: true
-    # tls: true
-    # skip-cert-verify: true
-    # servername: example.com # priority over wss host
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: docs.google.com
     network: ws
     ws-opts:
-      path: /vmessws
-      headers:
-       Host: docs.google.com
-    #   max-early-data: 2048
-    #   early-data-header-name: Sec-WebSocket-Protocol   
-
+       path: /vmessws
+       headers:
+         Host: disnet.gq
 proxy-groups:
   - name: "auto"
     type: select
