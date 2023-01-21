@@ -120,7 +120,7 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    skip-cert-verify: false
+    skip-cert-verify: true
     servername: docs.google.com
     network: ws
     ws-opts:
