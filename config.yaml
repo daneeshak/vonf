@@ -16,7 +16,7 @@ proxies:
      path: /trojanws
      headers:
       Host: linkedin.iamtrazy.tk
-  - name: "DIALOG-ZOOM-CDN"
+  - name: "VMESS-HTTP"
     type: vmess
     server: disnet.gq
     port: 80
@@ -132,7 +132,7 @@ proxy-groups:
     type: select
     proxies:
     - Twitter CDN
-    - DIALOG-ZOOM-CDN
+    - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
@@ -143,7 +143,7 @@ proxy-groups:
     type: fallback
     proxies:
     - Twitter CDN
-    - DIALOG-ZOOM-CDN
+    - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
@@ -156,7 +156,7 @@ proxy-groups:
     type: select
     proxies:
     - Twitter CDN
-    - DIALOG-ZOOM-CDN
+    - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
@@ -168,7 +168,7 @@ proxy-groups:
     type: load-balance
     proxies:
     - Twitter CDN
-    - DIALOG-ZOOM-CDN
+    - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
@@ -184,7 +184,7 @@ proxy-groups:
     type: relay
     proxies:
     - Twitter CDN
-    - DIALOG-ZOOM-CDN
+    - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
