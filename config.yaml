@@ -131,6 +131,7 @@ proxy-groups:
   - name: "auto"
     type: select
     proxies:
+
     - Twitter CDN
     - VMESS-HTTP
     - MOBITEL-LINKEDIN-CDN
@@ -142,55 +143,55 @@ proxy-groups:
   - name: "fallback-auto"
     type: fallback
     proxies:
-    - Twitter CDN
     - VMESS-HTTP
+    - Twitter CDN
+    - vmess airtel
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
     - DIALOG 02
     - vmess hutch
-    - vmess airtel
     url: 'http://www.gstatic.com/generate_204'
     interval: 10  
   - name: Proxy
     type: select
     proxies:
-    - Twitter CDN
     - VMESS-HTTP
+    - Twitter CDN
+    - vmess airtel
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
     - DIALOG 02
     - vmess hutch
-    - vmess airtel
    #disable-udp: true
   - name: "load-balance"
     type: load-balance
     proxies:
-    - Twitter CDN
     - VMESS-HTTP
+    - Twitter CDN
+    - vmess airtel
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
     - DIALOG 02
     - vmess hutch
-    - vmess airtel
     url: 'http://www.gstatic.com/generate_204'
     interval: 10
-   #lazy: true
+    lazy: true
    #disable-udp: true
    #strategy: consistent-hashing # or round-robin 
   - name: "relay"
     type: relay
     proxies:
-    - Twitter CDN
     - VMESS-HTTP
+    - Twitter CDN
+    - vmess airtel
     - MOBITEL-LINKEDIN-CDN
     - Dialog 0
     - DIALOG 0 TROJAN
     - DIALOG 02
     - vmess hutch
-    - vmess airtel
  #disable-udp: true   
 rules:
   - IP-CIDR,192.248.0.0/17,DIRECT
