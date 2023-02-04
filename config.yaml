@@ -4,7 +4,7 @@ profile:
   store-selected: true
   store-fake-ip: true
 proxies:
-  - name: "Twitter CDN"
+  - name: "TROJAN-WS"
     type: trojan
     server: 104.18.20.140
     port: 443
@@ -34,7 +34,7 @@ proxies:
        - keep-alive
       Host: 
        - playzonelk.com
-  - name: "MOBITEL-LINKEDIN-CDN"
+  - name: "VMESS-WS-M"
     type: vmess
     server: 104.18.47.108
     port: 443
@@ -50,7 +50,7 @@ proxies:
       path: /vmessws
       headers:
        Host: linkedin.iamtrazy.tk
-  - name: "Dialog 0"
+  - name: "VMESS-WS-D"
     type: vmess
     server: d216901qxcl0k5.cloudfront.net
     port: 443
@@ -66,7 +66,7 @@ proxies:
        path: /vmess
        headers:
          Host: d3mea97j4x8196.cloudfront.net
-  - name: "DIALOG 0 TROJAN"
+  - name: "VMESS-WS-D TROJAN"
     type: trojan
     server: d216901qxcl0k5.cloudfront.net
     port: 443
@@ -79,7 +79,7 @@ proxies:
      headers:
       Host: d3mea97j4x8196.cloudfront.net
     skip-cert-verify: false
-  - name: "DIALOG 02"
+  - name: "VMESS-WS-D2"
     type: vmess
     server: xui.yesitha.tk
     port: 443
@@ -105,7 +105,7 @@ proxies:
     udp: true
     tls: true
     skip-cert-verify: true
-    servername: www.crm.esamurdhi.gov.lk
+    servername: university.daraz.lk
     network: ws
     ws-opts:
        path: /vmessws
@@ -131,25 +131,24 @@ proxy-groups:
   - name: "auto"
     type: select
     proxies:
-
-    - Twitter CDN
     - VMESS-HTTP
-    - MOBITEL-LINKEDIN-CDN
-    - Dialog 0
-    - DIALOG 0 TROJAN
-    - DIALOG 02
-    - vmess hutch
+    - TROJAN-WS
     - vmess airtel
+    - VMESS-WS-M
+    - VMESS-WS-D
+    - VMESS-WS-D TROJAN
+    - VMESS-WS-D2
+    - vmess hutch
   - name: "fallback-auto"
     type: fallback
     proxies:
     - VMESS-HTTP
-    - Twitter CDN
+    - TROJAN-WS
     - vmess airtel
-    - MOBITEL-LINKEDIN-CDN
-    - Dialog 0
-    - DIALOG 0 TROJAN
-    - DIALOG 02
+    - VMESS-WS-M
+    - VMESS-WS-D
+    - VMESS-WS-D TROJAN
+    - VMESS-WS-D2
     - vmess hutch
     url: 'http://www.gstatic.com/generate_204'
     interval: 10  
@@ -157,24 +156,24 @@ proxy-groups:
     type: select
     proxies:
     - VMESS-HTTP
-    - Twitter CDN
+    - TROJAN-WS
     - vmess airtel
-    - MOBITEL-LINKEDIN-CDN
-    - Dialog 0
-    - DIALOG 0 TROJAN
-    - DIALOG 02
+    - VMESS-WS-M
+    - VMESS-WS-D
+    - VMESS-WS-D TROJAN
+    - VMESS-WS-D2
     - vmess hutch
    #disable-udp: true
   - name: "load-balance"
     type: load-balance
     proxies:
     - VMESS-HTTP
-    - Twitter CDN
+    - TROJAN-WS
     - vmess airtel
-    - MOBITEL-LINKEDIN-CDN
-    - Dialog 0
-    - DIALOG 0 TROJAN
-    - DIALOG 02
+    - VMESS-WS-M
+    - VMESS-WS-D
+    - VMESS-WS-D TROJAN
+    - VMESS-WS-D2
     - vmess hutch
     url: 'http://www.gstatic.com/generate_204'
     interval: 10
@@ -185,12 +184,12 @@ proxy-groups:
     type: relay
     proxies:
     - VMESS-HTTP
-    - Twitter CDN
+    - TROJAN-WS
     - vmess airtel
-    - MOBITEL-LINKEDIN-CDN
-    - Dialog 0
-    - DIALOG 0 TROJAN
-    - DIALOG 02
+    - VMESS-WS-M
+    - VMESS-WS-D
+    - VMESS-WS-D TROJAN
+    - VMESS-WS-D2
     - vmess hutch
  #disable-udp: true   
 rules:
