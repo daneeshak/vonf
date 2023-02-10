@@ -91,7 +91,6 @@ proxy-groups:
     - Airtel-NOCDN
     - Airtel-NOCDN2
     - DIALOG-ZOOM-CDN
-    - VMESS-WS-M
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
     url: 'http://www.gstatic.com/generate_204'
@@ -117,7 +116,7 @@ proxy-groups:
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
     url: 'http://www.gstatic.com/generate_204'
-    interval: 10
+    interval: 1
     lazy: true
    #disable-udp: true
    #strategy: consistent-hashing # or round-robin 
