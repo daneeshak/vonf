@@ -15,7 +15,7 @@ proxies:
     port: 443
     password: a869c557-5c7d-426f-9039-0279c16352bc
     udp: true
-    sni: linkedin.iamtrazy.tk
+    sni: sg.disnet.gq
     network: ws
     ws-opts:
      path: /trojanws
@@ -23,7 +23,7 @@ proxies:
       Host: linkedin.iamtrazy.tk
   - name: "VMESS-HTTP"
     type: vmess
-    server: disnet.gq
+    server: sg.disnet.gq
     port: 80
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
@@ -54,7 +54,7 @@ proxies:
     ws-opts:
       path: /vmessws
       headers:
-       Host: linkedin.iamtrazy.tk
+       Host: sg.disnet.gq
   - name: "VMESS-WS-D"
     type: vmess
     server: d216901qxcl0k5.cloudfront.net
@@ -86,7 +86,7 @@ proxies:
     skip-cert-verify: false
   - name: "VMESS-WS-D2"
     type: vmess
-    server: xui.yesitha.tk
+    server: sg.disnet.gq
     port: 443
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
@@ -99,10 +99,10 @@ proxies:
     ws-opts:
        path: /vmess
        headers:
-         Host: xui.yesitha.tk
+         Host: sg.disnet.gq
   - name: "vmess hutch"
     type: vmess
-    server: disnet.gq
+    server: sg.disnet.gq
     port: 443
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
@@ -115,10 +115,10 @@ proxies:
     ws-opts:
        path: /vmessws
        headers:
-         Host: disnet.gq   
+         Host: sg.disnet.gq   
   - name: "vmess airtel"
     type: vmess
-    server: disnet.gq
+    server: sg.disnet.gq
     port: 443
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
@@ -131,7 +131,7 @@ proxies:
     ws-opts:
        path: /vmessws
        headers:
-         Host: disnet.gq
+         Host: sg.disnet.gq
 proxy-groups:
   - name: "auto"
     type: select
