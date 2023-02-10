@@ -1,0 +1,170 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+mixed-port: 7890
+external-controller: 127.0.0.1:9090
+external-ui: D:\clash\yacd-gh-pages
+profile:
+  store-selected: true
+  store-fake-ip: true
+proxies:
+  - name: "MOBITEL-TWITTTER-NOCDN"
+    type: trojan
+    server: 168.138.182.121
+    port: 443
+    password: a869c557-5c7d-426f-9039-0279c16352bc
+    udp: true
+    sni: t.co
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN"
+    type: trojan
+    server: 168.138.182.121
+    port: 443
+    password: a869c557-5c7d-426f-9039-0279c16352bc
+    udp: true
+    sni: university.daraz.lk
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN2"
+    type: trojan
+    server: 168.138.182.121
+    port: 443
+    password: a869c557-5c7d-426f-9039-0279c16352bc
+    udp: true
+    sni: docs.google.com
+    skip-cert-verify: true
+  - name: "DIALOG-ZOOM-CDN"
+    type: vmess
+    server: meetzoom.disnet.gq
+    port: 443
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: meetzoom.disnet.gq
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: meetzoom.disnet.gq
+  - name: "MOBITEL-LINKEDIN-CDN"
+    type: vmess
+    server: linkedin.disnet.gq 
+    port: 443
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: linkedin.disnet.gq 
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: linkedin.disnet.gq
+  - name: "MOBITEL-TWITTTER-NOCDN US"
+    type: trojan
+    server: us.disnet.gq
+    port: 443
+    password: 7c7e0edb-c45a-4c07-b66a-69b191179349
+    udp: true
+    sni: t.co
+    skip-cert-verify: true
+proxy-groups:
+  - name: "auto"
+    type: select
+    proxies:
+    - DIRECT
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
+  - name: "fallback-auto"
+    type: fallback
+    proxies:
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - VMESS-WS-M
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 10  
+  - name: Proxy
+    type: select
+    proxies:
+    - DIRECT
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
+   #disable-udp: true
+  - name: "load-balance"
+    type: load-balance
+    proxies:
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 10
+    lazy: true
+   #disable-udp: true
+   #strategy: consistent-hashing # or round-robin 
+  - name: "relay"
+    type: relay
+    proxies:
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
+ #disable-udp: true   
+rules:
+  - IP-CIDR,192.248.0.0/17,DIRECT
+  - IP-CIDR,192.248.64.0/18,DIRECT
+  - IP-CIDR,192.248.32.0/19,DIRECT
+  - IP-CIDR,192.248.16.0/20,DIRECT
+  - IP-CIDR,192.248.8.0/21,DIRECT
+  - IP-CIDR,103.77.64.0/22,DIRECT
+  - IP-CIDR,192.248.0.0/22,DIRECT
+  - IP-CIDR,192.248.4.0/22,DIRECT
+  - MATCH,auto
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+   - 192.168.1.1
+   - 192.168.8.1
+   - 192.168.205.254
+   - 8.8.8.8
+   - 8.8.4.4
+log-level: silent
+allow-lan: false
+ipv6: false
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+    - 198.18.0.2:53
+    - 8.8.8.8:53
+    - 8.8.4.4:53
+    - 1.1.1.1:53
+  auto-route: true
+  auto-detect-interface: true
+ 
+mode: global
