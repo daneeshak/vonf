@@ -4,44 +4,38 @@ redir-port: 7892
 tproxy-port: 7893
 mixed-port: 7890
 external-controller: 127.0.0.1:9090
-external-ui: D:\clash\yacd-gh-pages
+external-ui: /etc/clash/web-ui/public
 profile:
   store-selected: true
   store-fake-ip: true
 proxies:
-  - name: "TROJAN-WS"
+  - name: "MOBITEL-TWITTTER-NOCDN"
     type: trojan
-    server: 104.18.20.140
+    server: 168.138.182.121
     port: 443
     password: a869c557-5c7d-426f-9039-0279c16352bc
     udp: true
-    sni: sg.disnet.gq
-    network: ws
-    ws-opts:
-     path: /trojanws
-     headers:
-      Host: linkedin.iamtrazy.tk
-  - name: "VMESS-HTTP"
-    type: vmess
-    server: sg.disnet.gq
-    port: 80
-    uuid: a869c557-5c7d-426f-9039-0279c16352bc
-    alterId: 0
-    cipher: auto
+    sni: t.co
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN"
+    type: trojan
+    server: 168.138.182.121
+    port: 443
+    password: a869c557-5c7d-426f-9039-0279c16352bc
     udp: true
-    network: http
-    http-opts:
-     method: "GET"
-     path:
-      - '/'
-     headers:
-      Connection:
-       - keep-alive
-      Host: 
-       - playzonelk.com
-  - name: "VMESS-WS-M"
+    sni: university.daraz.lk
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN2"
+    type: trojan
+    server: 168.138.182.121
+    port: 443
+    password: a869c557-5c7d-426f-9039-0279c16352bc
+    udp: true
+    sni: docs.google.com
+    skip-cert-verify: true
+  - name: "DIALOG-ZOOM-CDN"
     type: vmess
-    server: 104.18.47.108
+    server: meetzoom.disnet.gq
     port: 443
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
     cipher: aes-128-gcm
@@ -49,137 +43,79 @@ proxies:
     udp: true
     tls: true
     skip-cert-verify: false
-    servername: linkedin.iamtrazy.tk
+    servername: meetzoom.disnet.gq
     network: ws
     ws-opts:
       path: /vmessws
       headers:
-       Host: sg.disnet.gq
-  - name: "VMESS-WS-D"
+       Host: meetzoom.disnet.gq
+  - name: "MOBITEL-LINKEDIN-CDN"
     type: vmess
-    server: d216901qxcl0k5.cloudfront.net
+    server: linkedin.disnet.gq 
     port: 443
     uuid: a869c557-5c7d-426f-9039-0279c16352bc
+    cipher: aes-128-gcm
     alterId: 0
-    cipher: auto
     udp: true
     tls: true
     skip-cert-verify: false
-    servername: d216901qxcl0k5.cloudfront.net
+    servername: linkedin.disnet.gq 
     network: ws
     ws-opts:
-       path: /vmess
-       headers:
-         Host: d3mea97j4x8196.cloudfront.net
-  - name: "VMESS-WS-D TROJAN"
+      path: /vmessws
+      headers:
+       Host: linkedin.disnet.gq
+  - name: "MOBITEL-TWITTTER-NOCDN US"
     type: trojan
-    server: d216901qxcl0k5.cloudfront.net
+    server: us.disnet.gq
     port: 443
-    password: a869c557-5c7d-426f-9039-0279c16352bc
+    password: 7c7e0edb-c45a-4c07-b66a-69b191179349
     udp: true
-    sni: d216901qxcl0k5.cloudfront.net
-    network: ws
-    ws-opts:
-     path: /trojanws
-     headers:
-      Host: d3mea97j4x8196.cloudfront.net
-    skip-cert-verify: false
-  - name: "VMESS-WS-D2"
-    type: vmess
-    server: sg.disnet.gq
-    port: 443
-    uuid: a869c557-5c7d-426f-9039-0279c16352bc
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
+    sni: t.co
     skip-cert-verify: true
-    servername: docs.google.com
-    network: ws
-    ws-opts:
-       path: /vmess
-       headers:
-         Host: sg.disnet.gq
-  - name: "vmess hutch"
-    type: vmess
-    server: sg.disnet.gq
-    port: 443
-    uuid: a869c557-5c7d-426f-9039-0279c16352bc
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    skip-cert-verify: true
-    servername: university.daraz.lk
-    network: ws
-    ws-opts:
-       path: /vmessws
-       headers:
-         Host: sg.disnet.gq   
-  - name: "vmess airtel"
-    type: vmess
-    server: sg.disnet.gq
-    port: 443
-    uuid: a869c557-5c7d-426f-9039-0279c16352bc
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    skip-cert-verify: true
-    servername: docs.google.com
-    network: ws
-    ws-opts:
-       path: /vmessws
-       headers:
-         Host: sg.disnet.gq
 proxy-groups:
   - name: "auto"
     type: select
     proxies:
-    - VMESS-HTTP
-    - TROJAN-WS
-    - vmess airtel
-    - VMESS-WS-M
-    - VMESS-WS-D
-    - VMESS-WS-D TROJAN
-    - VMESS-WS-D2
-    - vmess hutch
+    - DIRECT
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
   - name: "fallback-auto"
     type: fallback
     proxies:
-    - VMESS-HTTP
-    - TROJAN-WS
-    - vmess airtel
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
     - VMESS-WS-M
-    - VMESS-WS-D
-    - VMESS-WS-D TROJAN
-    - VMESS-WS-D2
-    - vmess hutch
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
     url: 'http://www.gstatic.com/generate_204'
     interval: 10  
   - name: Proxy
     type: select
     proxies:
-    - VMESS-HTTP
-    - TROJAN-WS
-    - vmess airtel
-    - VMESS-WS-M
-    - VMESS-WS-D
-    - VMESS-WS-D TROJAN
-    - VMESS-WS-D2
-    - vmess hutch
+    - DIRECT
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
    #disable-udp: true
   - name: "load-balance"
     type: load-balance
     proxies:
-    - VMESS-HTTP
-    - TROJAN-WS
-    - vmess airtel
-    - VMESS-WS-M
-    - VMESS-WS-D
-    - VMESS-WS-D TROJAN
-    - VMESS-WS-D2
-    - vmess hutch
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
     url: 'http://www.gstatic.com/generate_204'
     interval: 10
     lazy: true
@@ -188,14 +124,12 @@ proxy-groups:
   - name: "relay"
     type: relay
     proxies:
-    - VMESS-HTTP
-    - TROJAN-WS
-    - vmess airtel
-    - VMESS-WS-M
-    - VMESS-WS-D
-    - VMESS-WS-D TROJAN
-    - VMESS-WS-D2
-    - vmess hutch
+    - MOBITEL-TWITTTER-NOCDN
+    - Airtel-NOCDN
+    - Airtel-NOCDN2
+    - DIALOG-ZOOM-CDN
+    - MOBITEL-LINKEDIN-CDN
+    - MOBITEL-TWITTTER-NOCDN US
  #disable-udp: true   
 rules:
   - IP-CIDR,192.248.0.0/17,DIRECT
@@ -224,11 +158,13 @@ tun:
   enable: true
   stack: gvisor
   dns-hijack:
+    - any:53
+    - tcp://any:53
     - 198.18.0.2:53
     - 8.8.8.8:53
     - 8.8.4.4:53
     - 1.1.1.1:53
   auto-route: true
   auto-detect-interface: true
-  
+ 
 mode: global
