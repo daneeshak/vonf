@@ -82,6 +82,7 @@ proxy-groups:
     - Airtel-NOCDN
     - Airtel-NOCDN2
     - DIALOG-ZOOM-CDN
+    - VMESS-WS-M
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
   - name: "fallback-auto"
