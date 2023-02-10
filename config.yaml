@@ -13,7 +13,7 @@ proxies:
     type: trojan
     server: 104.18.20.140
     port: 443
-    password: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    password: a869c557-5c7d-426f-9039-0279c16352bc
     udp: true
     sni: linkedin.iamtrazy.tk
     network: ws
@@ -25,7 +25,7 @@ proxies:
     type: vmess
     server: disnet.gq
     port: 80
-    uuid: 7c7e0edb-c45a-4c07-b66a-69b191179349
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
     cipher: auto
     udp: true
@@ -43,7 +43,7 @@ proxies:
     type: vmess
     server: 104.18.47.108
     port: 443
-    uuid: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     cipher: aes-128-gcm
     alterId: 0
     udp: true
@@ -59,7 +59,7 @@ proxies:
     type: vmess
     server: d216901qxcl0k5.cloudfront.net
     port: 443
-    uuid: 9a616720-0480-4656-9393-df67d2f1c9d5
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
     cipher: auto
     udp: true
@@ -75,7 +75,7 @@ proxies:
     type: trojan
     server: d216901qxcl0k5.cloudfront.net
     port: 443
-    password: 6d439d49-553d-4602-8b04-cdf69c4a707d
+    password: a869c557-5c7d-426f-9039-0279c16352bc
     udp: true
     sni: d216901qxcl0k5.cloudfront.net
     network: ws
@@ -88,7 +88,7 @@ proxies:
     type: vmess
     server: xui.yesitha.tk
     port: 443
-    uuid: 9a616720-0480-4656-9393-df67d2f1c9d5
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
     cipher: auto
     udp: true
@@ -104,7 +104,7 @@ proxies:
     type: vmess
     server: disnet.gq
     port: 443
-    uuid: 7c7e0edb-c45a-4c07-b66a-69b191179349
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
     cipher: auto
     udp: true
@@ -120,7 +120,7 @@ proxies:
     type: vmess
     server: disnet.gq
     port: 443
-    uuid: 7c7e0edb-c45a-4c07-b66a-69b191179349
+    uuid: a869c557-5c7d-426f-9039-0279c16352bc
     alterId: 0
     cipher: auto
     udp: true
