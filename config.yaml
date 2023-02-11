@@ -73,48 +73,145 @@ proxies:
     udp: true
     sni: t.co
     skip-cert-verify: true
+  - name: "test" 
+    type: vmess
+    server: india.yesitha.tk
+    port: 80
+    uuid: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    alterId: 0
+    cipher: auto
+    udp: true
+    network: http
+    http-opts:
+     method: "GET"
+     path:
+      - '/'
+     headers:
+      Connection:
+       - keep-alive
+      Host: 
+       - playzonelk.com
+  - name: "MOBITEL-TWITTTER-NOCDN-india"
+    type: trojan
+    server: 152.70.74.66
+    port: 443
+    password: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    udp: true
+    sni: t.co
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN-india"
+    type: trojan
+    server: 152.70.74.66
+    port: 443
+    password: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    udp: true
+    sni: university.daraz.lk
+    skip-cert-verify: true
+  - name: "Airtel-NOCDN2-india"
+    type: trojan
+    server: 152.70.74.66
+    port: 443
+    password: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    udp: true
+    sni: docs.google.com
+    skip-cert-verify: true
+  - name: "DIALOG-ZOOM-CDN-india"
+    type: vmess
+    server: meetzoom.yesitha.tk
+    port: 443
+    uuid: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: meetzoom.yesitha.tk
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: meetzoom.yesitha.tk
+  - name: "MOBITEL-LINKEDIN-CDN-india"
+    type: vmess
+    server: linkedin.yesitha.tk
+    port: 443
+    uuid: d906afe5-7c3c-4ddc-aaa4-61c154a82e5e
+    cipher: aes-128-gcm
+    alterId: 0
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    servername: linkedin.yesitha.tk
+    network: ws
+    ws-opts:
+      path: /vmessws
+      headers:
+       Host: linkedin.yesitha.tk
 proxy-groups:
   - name: "auto"
     type: select
     proxies:
     - DIRECT
+    - test
     - MOBITEL-TWITTTER-NOCDN
-    - Airtel-NOCDN
     - Airtel-NOCDN2
+    - Airtel-NOCDN
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
+    - MOBITEL-TWITTTER-NOCDN-india
+    - Airtel-NOCDN-india
+    - Airtel-NOCDN2-india
+    - DIALOG-ZOOM-CDN-india
+    - MOBITEL-LINKEDIN-CDN-india
   - name: "fallback-auto"
     type: fallback
     proxies:
+    - test
     - MOBITEL-TWITTTER-NOCDN
-    - Airtel-NOCDN
     - Airtel-NOCDN2
+    - Airtel-NOCDN
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
+    - MOBITEL-TWITTTER-NOCDN-india
+    - Airtel-NOCDN-india
+    - Airtel-NOCDN2-india
+    - DIALOG-ZOOM-CDN-india
+    - MOBITEL-LINKEDIN-CDN-india
     url: 'http://www.gstatic.com/generate_204'
     interval: 10  
   - name: Proxy
     type: select
     proxies:
-    - DIRECT
+    - test
     - MOBITEL-TWITTTER-NOCDN
-    - Airtel-NOCDN
     - Airtel-NOCDN2
+    - Airtel-NOCDN
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
+    - MOBITEL-TWITTTER-NOCDN-india
+    - Airtel-NOCDN-india
+    - Airtel-NOCDN2-india
+    - DIALOG-ZOOM-CDN-india
+    - MOBITEL-LINKEDIN-CDN-india
    #disable-udp: true
   - name: "load-balance"
     type: load-balance
     proxies:
+    - test
     - MOBITEL-TWITTTER-NOCDN
-    - Airtel-NOCDN
     - Airtel-NOCDN2
+    - Airtel-NOCDN
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
+    - MOBITEL-TWITTTER-NOCDN-india
+    - Airtel-NOCDN-india
+    - Airtel-NOCDN2-india
+    - DIALOG-ZOOM-CDN-india
+    - MOBITEL-LINKEDIN-CDN-india
     url: 'http://www.gstatic.com/generate_204'
     interval: 1
     lazy: true
@@ -123,12 +220,18 @@ proxy-groups:
   - name: "relay"
     type: relay
     proxies:
+    - test
     - MOBITEL-TWITTTER-NOCDN
-    - Airtel-NOCDN
     - Airtel-NOCDN2
+    - Airtel-NOCDN
     - DIALOG-ZOOM-CDN
     - MOBITEL-LINKEDIN-CDN
     - MOBITEL-TWITTTER-NOCDN US
+    - MOBITEL-TWITTTER-NOCDN-india
+    - Airtel-NOCDN-india
+    - Airtel-NOCDN2-india
+    - DIALOG-ZOOM-CDN-india
+    - MOBITEL-LINKEDIN-CDN-india
  #disable-udp: true   
 rules:
   - IP-CIDR,192.248.0.0/17,DIRECT
