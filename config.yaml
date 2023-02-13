@@ -292,7 +292,7 @@ rules:
   - IP-CIDR,192.248.4.0/22,DIRECT
   - MATCH,auto
 dns:
-  enable: false
+  enable: true
   ipv6: false
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
