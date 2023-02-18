@@ -248,7 +248,7 @@ proxy-groups:
     - Airtel-NOCDN2-india
     - DIALOG-ZOOM-CDN-india
     - MOBITEL-LINKEDIN-CDN-india
-     tolerance: 100
+    tolerance: 100
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 5
